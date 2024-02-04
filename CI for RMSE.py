@@ -28,6 +28,7 @@ def calculate_rmse_confidence_interval(predictions, actual_values, confidence_le
     lower_bound, upper_bound = stats.t.interval(confidence_level, degrees_of_freedom,
                                                 loc=mean_squared_errors, scale=sem_squared_errors)
 
+    # If the data set is large enough the z-score can be used instead of the t-score 
     # Return the confidence interval
     return np.sqrt(lower_bound), np.sqrt(upper_bound)
 
